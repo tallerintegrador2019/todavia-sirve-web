@@ -1,0 +1,36 @@
+.main-banner-container {
+    background: #F9F9F7;
+  }
+  
+  .main-banner-content {
+    // max-width: 1200px;
+    min-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .main-title-container {
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    margin: 7% 10%;
+    max-width: 400px;
+  
+    .main-title {
+      font-size: 60px;
+      color: #FFAD24;
+      line-height: 55px;
+    }
+  
+    .main-subtitle {
+      color: #ffffff;
+      @include light();
+      margin-top: 5px;
+      display: block;
+    }
+  }

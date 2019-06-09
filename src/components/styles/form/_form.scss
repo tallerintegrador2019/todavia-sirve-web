@@ -1,0 +1,119 @@
+@import "../_mixins.scss";
+@import "../_variables.scss";
+
+/**
+ * INPUT
+**/
+/* Componente de formulario: Input */
+.input-container {
+  @include general-label();
+
+  legend {
+    @include general-input-title();
+    margin-bottom: 4px;
+  }
+
+  input {
+    @include general-input-box();
+  }
+}
+
+/* Estado: campo con alerta o error */
+.warning-or-error-state {
+  input {
+    @include general-input-box(true);
+  }
+
+  .error-message {
+    @include error-message();
+  }
+
+  .success-message {
+    @include success-message();
+  }
+}
+
+/* NOTE: Estado: campo deshabilitado */
+.disabled-state {
+  @include general-disabled-state();
+}
+
+/*
+ * SELECT
+ */
+
+.select-container {
+  @include general-label();
+
+  legend {
+    @include general-input-title();
+    margin-bottom: 4px;
+  }
+
+  .select-input {
+    @include general-select-box();
+  }
+
+  select {
+    @include general-input-box();
+  }
+}
+
+/**
+ * RADIO or CHECKBOX
+**/
+.checkbox-container,
+.radio-container {
+  display: block;
+
+  input {
+    @include input-hidden-state();
+  }
+}
+
+.radio-wrapped,
+.check-wrapped {
+  // @include display-flex;
+  display: flex;
+  width: auto;
+}
+
+.radio-or-checkbox-label-title {
+  display: inline-block;
+  width: calc(100% - 20px);
+  padding-left: 10px;
+  font-size: 13px;
+  align-self: center;
+}
+
+/**
+ * RADIO
+**/
+.input-radio-button {
+  @include radio-or-check-item(true);
+
+  + .radio-or-checkbox-label-title {
+    color: $color-accent-one;
+  }
+}
+
+/**
+ * CHECKBOX
+**/
+.input-checkbox-button {
+  @include radio-or-check-item(false);
+
+  + .radio-or-checkbox-label-title {
+    color: $color-accent-one;
+  }
+}
+
+/**
+ * MULTI CHECKBOX
+**/
+.multiple-check-box-container {
+  legend {
+    @include general-input-title();
+    margin-bottom: 10px;
+  }
+}

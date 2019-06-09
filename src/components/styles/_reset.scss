@@ -1,0 +1,23 @@
+// Reset Styles
+@import "_variables.scss";
+
+* {
+  font-family: 'Roboto', sans-serif;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background: transparent;
+  box-sizing: border-box;
+  list-style-type: none;
+  color: $color-base;
+}
+
+button,
+input[type="submit"],
+a {
+	cursor: pointer;
+}
+
+.open-menu-state {
+  position: fixed;
+}

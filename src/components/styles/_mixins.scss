@@ -1,0 +1,253 @@
+@import "_variables.scss";
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@mixin light() {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@mixin normal() {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@mixin bold() {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@mixin heading-level-1($color: $color-primary-one) {
+  font-size: 24px;
+  color: $color;
+  text-align: left;
+  text-transform: uppercase;
+  @include bold();
+}
+
+@mixin heading-level-2($color: $color-primary-one) {
+  font-size: 20px;
+  color: $color;
+  text-align: left;
+  @include normal();
+}
+
+@mixin heading-level-3($color: $color-primary-one) {
+  font-size: 18px;
+  color: $color;
+  text-align: left;
+  @include bold();
+}
+
+@mixin heading-level-4($color: $color-primary-one) {
+  font-size: 15px;
+  color: $color;
+  text-align: left;
+  @include bold();
+}
+
+@mixin global-text($color: $color-primary-one) {
+  font-size: 14px;
+  color: $color;
+  text-align: left;
+  @include normal();
+}
+
+@mixin notification($color: $color-primary-one) {
+  font-size: 12px;
+  color: $color;
+  text-align: left;
+  @include normal();
+}
+
+// Mixins
+@mixin general-label() {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+}
+
+@mixin general-input-title($color: $color-accent-one) {
+  @include global-text($color);
+}
+
+@mixin general-input-box($error: false) {
+  font-size: 15px;
+  padding: 8px 7px;
+  outline: 0px;
+  width: 100%;
+  height: 100%;
+  background: $color-primary-three;
+  border-radius: 4px;
+
+  @if $error == true {
+    border: solid 1px $color-error;
+
+    &:focus {
+      border: solid 1px $color-error;
+    }
+  } @else {
+    border: 0px;
+
+    &:focus {
+      border: solid 1px $color-accent-one;
+    }
+  }
+}
+
+@mixin general-select-box() {
+  @include general-input-box();
+  padding: 8px 0px;
+}
+
+@mixin general-inline-message($color: $color-error) {
+  color: $color;
+  margin-top: 5px;
+  font-size: 12px;
+  position: relative;
+}
+
+@mixin error-message() {
+  @include general-inline-message();
+}
+
+@mixin success-message() {
+  @include general-inline-message($color-success);
+}
+
+@mixin general-disabled-state() {
+  opacity: .4;
+  cursor: normal;
+}
+
+@mixin ellipsis() {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+@mixin radio-or-check-item ($radio: false) {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  box-shadow: 0px 0px 0px 2px $color-accent-one inset;
+  display: inline-block;
+
+  @if $radio == true {
+    border-radius: 50%;
+  }
+
+  &.checked-state {
+    background: $color-accent-one;
+  }
+}
+
+@mixin input-hidden-state () {
+  opacity: 0;
+  margin: 0px;
+  padding: 0px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+@mixin general-button ($background: $color-primary-one) {
+  display: inline-block;
+  width: 100%;
+  background: $background;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 13px 10px;
+  color: $color-global-white;
+  border-radius: 2px;
+
+  &:disabled {
+    background: $color-primary-one;
+  }
+}
+
+@mixin button-close-icon () {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  position: relative;
+  display: inline-block;
+  font-size: 0px;
+  transform: rotate(45deg);
+
+  &:before,
+  &:after {
+    content: '';
+    background: $color-primary-one;
+    display: inline-block;
+    position: absolute;
+  }
+
+  &:before {
+    width: 2px;
+    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: -1px;
+  }
+
+  &:after {
+    height: 2px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -1px;
+  }
+}
+
+@mixin custom-minus-icon ($color: $color-accent-one) {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  font-size: 0px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    background: $color;
+    position: relative;
+    height: 2px;
+    width: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+}
+
+@mixin custom-plus-icon($color: $color-accent-one) {
+  @include custom-minus-icon($color);
+
+  &:after {
+    content: '';
+    display: inline-block;
+    background: $color;
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    top: -1px;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+}

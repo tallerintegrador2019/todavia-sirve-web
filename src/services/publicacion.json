@@ -1,0 +1,15 @@
+{
+    "personas" : [
+        {
+            "nombre" : "publicacion 1",
+            "descripcion" : "masetero",
+            "imagen" : "background1" 
+        },
+        {
+            "nombre" : "publicacion 2",
+            "descripcion" : "florero",
+            "imagen" : "background2" 
+        }
+    ]
+
+}
